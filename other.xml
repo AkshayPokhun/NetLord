@@ -1,0 +1,11 @@
+<application>
+  <component name="NodeJsLocalInterpreters">
+    <local-interpreter path="C:/Program Files (x86)/nodejs/node.exe" />
+  </component>
+  <component name="PersistenceGenerationSettings">
+    <option name="addToUnit" value="true" />
+    <option name="generateSingleXml" value="true" />
+    <option name="GENERATE_XML" value="true" />
+    <option name="ADD_TO_UNIT" value="true" />
+  </component>
+</application>

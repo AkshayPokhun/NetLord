@@ -1,0 +1,77 @@
+<application>
+  <component name="libraryTable">
+    <library name="Hibernate">
+      <CLASSES />
+      <JAVADOC />
+      <SOURCES />
+    </library>
+    <library name="Hibernate 5.2.3-5.2.3" type="hibernate">
+      <properties version="5.2.3" />
+      <CLASSES>
+        <root url="jar://$USER_HOME$/Documents/IdeaProjects/Hibernate/antlr-2.7.7.jar!/" />
+        <root url="jar://$USER_HOME$/Documents/IdeaProjects/Hibernate/cdi-api-1.1.jar!/" />
+        <root url="jar://$USER_HOME$/Documents/IdeaProjects/Hibernate/classmate-1.3.0.jar!/" />
+        <root url="jar://$USER_HOME$/Documents/IdeaProjects/Hibernate/dom4j-1.6.1.jar!/" />
+        <root url="jar://$USER_HOME$/Documents/IdeaProjects/Hibernate/el-api-2.2.jar!/" />
+        <root url="jar://$USER_HOME$/Documents/IdeaProjects/Hibernate/geronimo-jta_1.1_spec-1.1.1.jar!/" />
+        <root url="jar://$USER_HOME$/Documents/IdeaProjects/Hibernate/hibernate-commons-annotations-5.0.1.Final.jar!/" />
+        <root url="jar://$USER_HOME$/Documents/IdeaProjects/Hibernate/hibernate-core-5.2.3.Final.jar!/" />
+        <root url="jar://$USER_HOME$/Documents/IdeaProjects/Hibernate/hibernate-jpa-2.1-api-1.0.0.Final.jar!/" />
+        <root url="jar://$USER_HOME$/Documents/IdeaProjects/Hibernate/jandex-2.0.0.Final.jar!/" />
+        <root url="jar://$USER_HOME$/Documents/IdeaProjects/Hibernate/javassist-3.20.0-GA.jar!/" />
+        <root url="jar://$USER_HOME$/Documents/IdeaProjects/Hibernate/javax.inject-1.jar!/" />
+        <root url="jar://$USER_HOME$/Documents/IdeaProjects/Hibernate/javax.persistence.jar!/" />
+        <root url="jar://$USER_HOME$/Documents/IdeaProjects/Hibernate/jboss-interceptors-api_1.1_spec-1.0.0.Beta1.jar!/" />
+        <root url="jar://$USER_HOME$/Documents/IdeaProjects/Hibernate/jboss-logging-3.3.0.Final.jar!/" />
+        <root url="jar://$USER_HOME$/Documents/IdeaProjects/Hibernate/jboss-transaction-api_1.2_spec-1.0.0.Final.jar!/" />
+        <root url="jar://$USER_HOME$/Documents/IdeaProjects/Hibernate/jsr250-api-1.0.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES />
+    </library>
+    <library name="Java EE 6-Java EE 6">
+      <CLASSES>
+        <root url="jar://$USER_HOME$/Documents/IdeaProjects/Project Kosaki/lib/javax.annotation.jar!/" />
+        <root url="jar://$USER_HOME$/Documents/IdeaProjects/Project Kosaki/lib/javax.transaction.jar!/" />
+        <root url="jar://$USER_HOME$/Documents/IdeaProjects/Project Kosaki/lib/javax.servlet.jsp.jstl.jar!/" />
+        <root url="jar://$USER_HOME$/Documents/IdeaProjects/Project Kosaki/lib/javax.jms.jar!/" />
+        <root url="jar://$USER_HOME$/Documents/IdeaProjects/Project Kosaki/lib/javax.resource.jar!/" />
+        <root url="jar://$USER_HOME$/Documents/IdeaProjects/Project Kosaki/lib/javax.persistence.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES />
+    </library>
+    <library name="JPA 2.0-2.0">
+      <CLASSES />
+      <JAVADOC />
+      <SOURCES />
+    </library>
+    <library name="JPA 2.0-2.0 (2)">
+      <CLASSES />
+      <JAVADOC />
+      <SOURCES />
+    </library>
+    <library name="JPA 2.0-2.0 (3)">
+      <CLASSES />
+      <JAVADOC />
+      <SOURCES />
+    </library>
+    <library name="mysql-connector-java-5.1.35-bin">
+      <CLASSES>
+        <root url="jar://$USER_HOME$/Documents/IdeaProjects/mysql-connector-java-5.1.35-bin.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES />
+    </library>
+    <library name="PrimeFaces-5.2" type="jsf-primefaces">
+      <properties version="5.2" />
+      <CLASSES>
+        <root url="jar://$USER_HOME$/Documents/IdeaProjects/Project Tsuneki/lib/primefaces-5.2.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES>
+        <root url="jar://$USER_HOME$/Documents/IdeaProjects/Project Tsuneki/lib/primefaces-5.2-sources.jar!/" />
+      </SOURCES>
+    </library>
+  </component>
+</application>
