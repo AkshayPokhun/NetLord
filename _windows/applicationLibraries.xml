@@ -63,5 +63,15 @@
       <JAVADOC />
       <SOURCES />
     </library>
+    <library name="PrimeFaces-5.2" type="jsf-primefaces">
+      <properties version="5.2" />
+      <CLASSES>
+        <root url="jar://$USER_HOME$/Documents/IdeaProjects/PrimeFaces/lib/primefaces-5.2.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES>
+        <root url="jar://$USER_HOME$/Documents/IdeaProjects/PrimeFaces/lib/primefaces-5.2-sources.jar!/" />
+      </SOURCES>
+    </library>
   </component>
 </application>
