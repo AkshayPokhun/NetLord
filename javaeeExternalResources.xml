@@ -1,5 +1,5 @@
 <application>
   <component name="ExternalResourceManagerImpl">
-    <resource url="http://primefaces.org/ui" location="C:/glassfish4/glassfish/modules/PrimeFaces/primefaces-5.2.jar!/META-INF/primefaces-p.taglib.xml" />
+    <resource url="http://primefaces.org/ui" location="C:/glassfish4/glassfish/modules/primefaces/primefaces-5.2.jar" />
   </component>
 </application>
