@@ -10,6 +10,7 @@ import java.util.Scanner;
 
 public class Server implements Runnable{
 
+    Scanner sn = new Scanner(System.in);
     private int port, packetSize;
     private String ipAddress;
     private DatagramSocket serverSocket;
@@ -20,14 +21,27 @@ public class Server implements Runnable{
 
         setServerDetails();
         getIpAddress();
+//        waitForInput();
 
 
+    }
+
+    private void waitForInput() {
+
+        System.out.println("Next command: ");
+        String command = sn.next();
+
+        if(command.equals("stop"))
+            serverSocket.close();
+        else
+            setServerDetails();
+            getIpAddress();
     }
 
 
     private void setServerDetails(){
 
-        try (Scanner sn = new Scanner(System.in)) {
+        try  {
 
             System.out.print("Enter port number: ");
             port = sn.nextInt();
@@ -46,7 +60,7 @@ public class Server implements Runnable{
                 System.out.println("Your computer is not connected to a network");
                 System.exit(1);
             }
-            System.out.format("Server successfully started.... %nIPv4 Address: " + address + " port: " + port + "");
+            System.out.format("Server successfully started.... %nIPv4 Address: " + address + " port: " + port + "%n");
             return address;
 
         } catch (Exception e) {
@@ -92,6 +106,7 @@ public class Server implements Runnable{
             try {
                 serverSocket.send(sendPacket);
             } catch (Exception ex) {
+                System.out.println(ex.toString());
             }
         }
 

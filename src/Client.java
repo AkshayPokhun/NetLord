@@ -17,7 +17,7 @@ public class Client implements Runnable{
     private DatagramPacket sendPacket, receivePacket;
     private DatagramSocket clientSocket;
     private boolean clientIsRunning = true;
-    private String command;
+    private String command, address;
     Scanner sn = new Scanner(System.in);
 
     public Client() {
@@ -54,9 +54,9 @@ public class Client implements Runnable{
         command = sn.nextLine();
         System.out.println("");
 
-        System.out.println("Enter Port Number: ");
+        System.out.print("Enter Port Number: ");
         port = sn.nextInt();
-
+        System.out.println("");
 
         } catch (Exception e) {}
 
@@ -65,16 +65,23 @@ public class Client implements Runnable{
 
     public void run(){
         if(command.contains("t")){
-            while(clientIsRunning){
+            while(clientIsRunning) {
                 pingClient();
             }
+        }else{
+            pingClient();
         }
     }
 
 
     public void pingClient(){
         try{
-            String address = command.substring(command.indexOf("1"), command.indexOf("-") -1);
+
+            address = command;
+            if (command.contains("-"))
+                address = command.substring(command.indexOf("1"), command.indexOf("-") -1);
+
+
             ipAddress = InetAddress.getByName(address);
 
 
@@ -90,7 +97,8 @@ public class Client implements Runnable{
             }else{
                 packetLength  = 32;
             }
-            System.out.println(packetLength);
+
+
             sendData = new byte[packetLength];
 
             // allocate a data buffer
@@ -103,9 +111,15 @@ public class Client implements Runnable{
             // receive the datagrams and specify the complete address of the server to ping
 
             sendPacket = new DatagramPacket(sendData, sendData.length, ipAddress, port);
-            System.out.println("Pinging " + ipAddress.getHostName()
+            System.out.format("Pinging " + ipAddress.getHostName()
                                 + " with " + echoRequests + " packets"
-                                + " each of " + packetLength + " bytes ");
+                                + " each of " + packetLength + " bytes %n");
+
+
+//            String break_line = sn.next();
+//            if(break_line.equals("break"))
+//                System.out.println(break_line);
+//                clientSocket.close();
 
             int sent = 0;
             int received = 0;
@@ -123,7 +137,9 @@ public class Client implements Runnable{
                 } catch (SocketTimeoutException ex) {
                     System.out.println("- Unable to send packet: connection timed out...");
                     continue;
-                }catch (IOException ex) { }
+                }catch (IOException ex) {
+                    System.out.println(ex.toString());
+                }
 
                 receivePacket = new DatagramPacket(receiveData, receiveData.length); // contains client's data and the length
 
@@ -173,17 +189,18 @@ public class Client implements Runnable{
                                 + ":Packets: Sent =" + sent + ", Received = " + received
                                 + ", Lost = " + lost + " (" + percentLoss + "% loss)"
                 );
+
                 System.out.println(
                         "+ Approximate round trip times in milli-seconds:"
                                 + "Minimum = " + minTime + "ms, Maximum = " + maxTime
                                 + "ms, Average = " + averageTime + "ms");
+                System.out.println("");
 
-                String break_line = sn.next();
-                if(break_line.equals("break"))
-                    System.out.println(break_line);
-                    clientSocket.close();
+
             }
-        }catch (Exception e){}
+        }catch (Exception e){
+            System.out.println(e.toString());
+        }
     }
 
 }
