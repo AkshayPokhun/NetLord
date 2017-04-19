@@ -1,7 +1,11 @@
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.net.*;
 import java.util.Calendar;
 import java.util.Scanner;
+
 /**
  * Created by aksha on 16-Apr-17.
  */
@@ -16,6 +20,7 @@ public class Client implements Runnable{
     private boolean clientIsRunning = true;
     private String command, address, ipHeader;
     Scanner sn = new Scanner(System.in);
+    BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
     public Client() {
 
@@ -26,8 +31,8 @@ public class Client implements Runnable{
 
             clientSocket = new DatagramSocket();
             clientSocket.setSoTimeout(timeOut);
+            getInputDetails();
 
-            run();
 
         } catch (Exception e) {}
 
@@ -36,7 +41,6 @@ public class Client implements Runnable{
 
     public void help(){
 
-        try {
         System.out.format("You may enter any of the ping options below: %n%n");
         System.out.println("-t Ping the specified host until stopped.");
         System.out.println("-a Resolve addresses to hostnames");
@@ -44,40 +48,56 @@ public class Client implements Runnable{
         System.out.println("-l Send buffer size.");
         System.out.println("-w Timeout in milliseconds to wait for each reply.");
         System.out.println("-4 Force using IPv4");
-        System.out.format("%nWaiting for command: ");
-        command = sn.nextLine();
-        System.out.println("");
 
-        System.out.print("Enter Port Number: ");
-        port = sn.nextInt();
-        System.out.println("");
+    }
 
-            if (command.contains("n")) {
-                System.out.print("Number of echo requests: ");
-                echoRequests = sn.nextInt();
-                System.out.println("");
+    private void getInputDetails(){
+
+        try {
+            command = null;
+            System.out.format("%nWaiting for command: ");
+            command = br.readLine();
+            System.out.println("");
+
+            if(command.equals("help")) {
+                help();
+                getInputDetails();
             }
-            else
-                echoRequests = 4;
-
-            if(command.contains("l")){
-                System.out.print("Buffer size: ");
-                packetLength  = sn.nextInt();
+            else {
+                System.out.print("Enter Port Number: ");
+                port = sn.nextInt();
                 System.out.println("");
-            }else{
-                packetLength  = 32;
+
+                if (command.contains("n")) {
+                    System.out.print("Number of echo requests: ");
+                    echoRequests = sn.nextInt();
+                    System.out.println("");
+                } else
+                    echoRequests = 4;
+
+                if (command.contains("l")) {
+                    System.out.print("Buffer size: ");
+                    packetLength = sn.nextInt();
+                    System.out.println("");
+                } else {
+                    packetLength = 32;
+                }
+
+                if (command.contains("w")) {
+                    System.out.print("Time to wait for reply ");
+                    timeOut = sn.nextInt(); // time out
+                    System.out.println("");
+                }
+
+                run();
             }
 
-            if (command.contains("w")) {
-                System.out.print("Time to wait for reply ");
-                timeOut = sn.nextInt(); // time out
-                System.out.println("");
-            }
 
-
-
-        } catch (Exception e) {}
-
+        } catch (Exception e) {
+            System.out.println("Please check your input");
+            help();
+            getInputDetails();
+        }
 
     }
 
@@ -89,6 +109,8 @@ public class Client implements Runnable{
         }
         else{
             pingClient();
+            getInputDetails();
+
         }
     }
 
@@ -137,6 +159,12 @@ public class Client implements Runnable{
 
             while (sent < echoRequests) {
                 long start = Calendar.getInstance().getTimeInMillis(); // gets the current in ms
+                int lost = sent - received;
+                // checks if any packets lost and performs the & % lost
+                float percentLoss = (sent != 0) ? ((float) lost / sent) * 100 : 0;
+                float averageTime = (float) totalTime / sent;
+
+
                 try {
                     clientSocket.send(sendPacket);
                     sent++;
@@ -148,6 +176,8 @@ public class Client implements Runnable{
                 }
 
                 receivePacket = new DatagramPacket(receiveData, receiveData.length); // contains client's data and the length
+
+
 
                 try {
                     clientSocket.receive(receivePacket);
@@ -186,10 +216,7 @@ public class Client implements Runnable{
                                     + ((duration == 0) ? "<1ms" : "=" + (duration) + "ms")
                     );
                 }
-                int lost = sent - received;
-                // checks if any packets lost and performs the & % lost
-                float percentLoss = (sent != 0) ? ((float) lost / sent) * 100 : 0;
-                float averageTime = (float) totalTime / sent;
+
                 System.out.println(
                         "+ Ping statistics for " + ipAddress.getHostAddress()
                                 + ":Packets: Sent =" + sent + ", Received = " + received

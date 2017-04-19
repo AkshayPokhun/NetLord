@@ -6,6 +6,7 @@ import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
 import java.net.ServerSocket;
+import java.util.Random;
 import java.util.Scanner;
 
 public class Server implements Runnable{
@@ -16,6 +17,10 @@ public class Server implements Runnable{
     private DatagramSocket serverSocket;
     private DatagramPacket receivePacket;
     private byte[] receiveData;
+    Random random = new Random();
+
+    private static final double LOSS_RATE = 0.3;
+    private static final int AVERAGE_DELAY = 100;
 
     public Server() {
 
@@ -91,6 +96,18 @@ public class Server implements Runnable{
                 serverSocket.receive(receivePacket);
                 System.out.println("Received a ping from " + receivePacket.getAddress().getHostName());
             } catch (Exception e) {}
+
+            if (random.nextDouble() < LOSS_RATE) {
+                System.out.println("   Reply not sent.");
+                continue;
+            }
+
+            try {
+                Thread.sleep((int) (random.nextDouble() * 2 * AVERAGE_DELAY));
+                System.out.println(random.nextDouble() * 2 * AVERAGE_DELAY);
+            } catch (InterruptedException e) {
+                System.out.println(e.toString());
+            }
 
             if (receivePacket.getPort() == -1) {
                 receivePacket.setPort(port);
