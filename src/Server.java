@@ -21,8 +21,6 @@ public class Server implements Runnable{
 
         setServerDetails();
         getIpAddress();
-//        waitForInput();
-
 
     }
 
