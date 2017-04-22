@@ -41,6 +41,34 @@
       <JAVADOC />
       <SOURCES />
     </library>
+    <library name="JAX-WS-Glassfish / JAX-WS 2.2 RI / Metro 1.X / JWSDP 2.2" type="JAX-WS">
+      <properties version="Glassfish / JAX-WS 2.2 RI / Metro 1.X / JWSDP 2.2" />
+      <CLASSES>
+        <root url="jar://$USER_HOME$/Documents/IdeaProjects/Lecture17/lib/gmbal-api-only.jar!/" />
+        <root url="jar://$USER_HOME$/Documents/IdeaProjects/Lecture17/lib/jaxws-api.jar!/" />
+        <root url="jar://$USER_HOME$/Documents/IdeaProjects/Lecture17/lib/javax.annotation.jar!/" />
+        <root url="jar://$USER_HOME$/Documents/IdeaProjects/Lecture17/lib/jsr181-api.jar!/" />
+        <root url="jar://$USER_HOME$/Documents/IdeaProjects/Lecture17/lib/ha-api.jar!/" />
+        <root url="jar://$USER_HOME$/Documents/IdeaProjects/Lecture17/lib/management-api.jar!/" />
+        <root url="jar://$USER_HOME$/Documents/IdeaProjects/Lecture17/lib/jaxb-api.jar!/" />
+        <root url="jar://$USER_HOME$/Documents/IdeaProjects/Lecture17/lib/mimepull.jar!/" />
+        <root url="jar://$USER_HOME$/Documents/IdeaProjects/Lecture17/lib/saaj-api.jar!/" />
+        <root url="jar://$USER_HOME$/Documents/IdeaProjects/Lecture17/lib/policy.jar!/" />
+        <root url="jar://$USER_HOME$/Documents/IdeaProjects/Lecture17/lib/FastInoset.jar!/" />
+        <root url="jar://$USER_HOME$/Documents/IdeaProjects/Lecture17/lib/stax-ex.jar!/" />
+        <root url="jar://$USER_HOME$/Documents/IdeaProjects/Lecture17/lib/streambuffer.jar!/" />
+        <root url="jar://$USER_HOME$/Documents/IdeaProjects/Lecture17/lib/mail.jar!/" />
+        <root url="jar://$USER_HOME$/Documents/IdeaProjects/Lecture17/lib/stax2-api.jar!/" />
+        <root url="jar://$USER_HOME$/Documents/IdeaProjects/Lecture17/lib/saaj-impl.jar!/" />
+        <root url="jar://$USER_HOME$/Documents/IdeaProjects/Lecture17/lib/jaxws-tools.jar!/" />
+        <root url="jar://$USER_HOME$/Documents/IdeaProjects/Lecture17/lib/woodstox-core-asl.jar!/" />
+        <root url="jar://$USER_HOME$/Documents/IdeaProjects/Lecture17/lib/jaxb-impl.jar!/" />
+        <root url="jar://$USER_HOME$/Documents/IdeaProjects/Lecture17/lib/jaxws-rt.jar!/" />
+        <root url="jar://$USER_HOME$/Documents/IdeaProjects/Lecture17/lib/jaxb-xjc.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES />
+    </library>
     <library name="JPA 2.0-2.0">
       <CLASSES />
       <JAVADOC />
