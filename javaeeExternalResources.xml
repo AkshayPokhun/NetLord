@@ -1,5 +1,8 @@
 <application>
   <component name="ExternalResourceManagerImpl">
     <resource url="http://primefaces.org/ui" location="C:/glassfish4/glassfish/modules/primefaces/primefaces-5.2.jar" />
+    <resource url="http://xmlns.jcp.org/jsf/core" location="$APPLICATION_HOME_DIR$/plugins/JSF/lib/jsf-support.jar" />
+    <resource url="http://xmlns.jcp.org/jsf/facelets" location="$APPLICATION_HOME_DIR$/plugins/JSF/lib/jsf-support.jar" />
+    <ignored-resource url="http://xmlns.jcp.org/jsf/facelets" />
   </component>
 </application>
